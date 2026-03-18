@@ -20,55 +20,49 @@
         main { width: 100%; max-width: 1200px; margin: 0 auto; }
 
         header { border-bottom: 4px double var(--accent); padding-bottom: 1rem; margin-bottom: 2rem; }
-        h1 { font-size: clamp(2rem, 8vw, 4rem); text-transform: uppercase; }
+        h1 { font-size: clamp(1.5rem, 6vw, 3.5rem); text-transform: uppercase; }
 
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .box { background: var(--card-bg); border: 2px solid var(--border); padding: 1.5rem; position: relative; }
         .box:hover { border-color: var(--accent); }
         h2 { color: var(--accent); font-size: 1rem; margin-bottom: 1rem; }
 
-        /* MULTIPLAYER VOID STYLING */
-        #gmod-void { height: 500px; position: relative; background: #000; cursor: crosshair; }
+        #gmod-void { height: 500px; position: relative; background: #000; overflow: hidden; border: 4px solid var(--accent); }
         #join-screen { position: absolute; inset: 0; background: rgba(0,0,0,0.9); z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-
-        /* GUESTBOOK STYLING */
+        
         #data-stream { height: 400px; overflow-y: auto; background: #000; padding: 10px; border: 1px solid #222; resize: vertical; }
 
-        .img-card { background: #fff; padding: 10px 10px 30px 10px; border: 1px solid #ddd; transform: rotate(-1deg); transition: 0.3s; }
-        .img-card img { width: 100%; filter: grayscale(20%); }
-        .img-caption { color: #000; font-size: 0.8rem; text-align: center; font-weight: bold; }
+        .img-card { background: #fff; padding: 10px 10px 30px 10px; border: 1px solid #ddd; transform: rotate(-1.5deg); }
+        .img-card img { width: 100%; display: block; }
+        .img-caption { color: #000; font-size: 0.8rem; text-align: center; font-weight: bold; margin-top: 5px; }
 
-        footer { margin-top: 3rem; text-align: center; font-size: 0.7rem; opacity: 0.5; letter-spacing: 3px; }
-
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        footer { margin-top: 3rem; text-align: center; font-size: 0.7rem; opacity: 0.6; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
     </style>
 </head>
 <body>
 
 <main>
     <header>
-        <h1><marquee scrollamount="15">PETE'S WORLD // MULTIPLAYER_VOID_ACTIVE</marquee></h1>
-        <p>> STATUS: <span id="sync-status" style="color:var(--accent)">CONNECTING...</span></p>
+        <h1><marquee scrollamount="15">PETE'S WEB // YOURE ON THE WORLD WIDE WEB!!!</marquee></h1>
+        <p>> Pete's Website | <span id="sync-status" style="color:var(--accent)">STAY HYDRATED</span></p>
     </header>
 
     <div class="grid-container">
-
-        <div class="box" id="gmod-void" style="grid-column: 1 / -1;">
+        
+        <div class="box" id="gmod-void" style="grid-column: 1 / -1; padding:0;">
             <div id="join-screen">
-                <img src="https://i.ibb.co/gcY7Vmq/DOOM.webp" style="width: 150px; margin-bottom: 20px; filter: hue-rotate(280deg);">
-                <button onclick="initGmod()" style="background:var(--accent); color:white; border:none; padding:15px 40px; font-weight:bold; cursor:pointer;">[ SPAWN_IN_VOID ]</button>
-                <p style="font-size: 0.7rem; margin-top: 10px; color: var(--text-mid);">WASD to walk | Mouse to rotate | Click to grab objects</p>
+                <img src="https://i.ibb.co/gcY7Vmq/DOOM.webp" style="width: 150px; margin-bottom: 20px;">
+                <h2 style="animation: blink 1s infinite;">[ SPAWN_STATION ]</h2>
+                <button onclick="initGmod()" style="background:var(--accent); color:white; border:none; padding:12px 35px; font-weight:bold; cursor:pointer;">ENTER_VOID</button>
             </div>
-            <div id="ui-info" style="position:absolute; top:10px; left:10px; font-size:0.7rem; color:var(--accent); z-index:5;">PEERS_ONLINE: <span id="peer-count">1</span></div>
+            <div style="position:absolute; top:10px; left:10px; font-size:0.7rem; color:var(--accent); z-index:5;">PEERS: <span id="peer-count">1</span></div>
         </div>
 
         <div class="box" style="grid-column: 1 / -2;">
-            <h2>GLOBAL_ARCHIVE (Entries: <span id="entry-count">0</span>)</h2>
+            <h2>GUESTBOOK (Entries: <span id="entry-count">0</span>)</h2>
             <div style="background: #000; padding: 10px; border: 1px solid #333; margin-bottom: 10px;">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-bottom: 5px;">
-                    <input type="text" id="handle" placeholder="SET_HANDLE" style="background:#111; border:1px solid #444; color:var(--accent); padding:5px;">
-                    <input type="text" id="imgUrl" placeholder="IMG_URL" style="background:#111; border:1px solid #444; color:#4ade80; padding:5px;">
-                </div>
+                <input type="text" id="handle" placeholder="SET_HANDLE" style="background:#111; border:1px solid #444; color:var(--accent); padding:5px; margin-bottom:5px; width:100%;">
                 <div style="display: flex; gap: 5px;">
                     <textarea id="content" placeholder="MESSAGE..." style="flex-grow:1; background:#111; border:1px solid #444; color:#fff; padding:5px; height:40px; resize:none;"></textarea>
                     <button onclick="transmitToCloud()" style="background:var(--accent); color:white; border:none; padding:0 15px; font-weight:bold; cursor:pointer;">SEND</button>
@@ -78,122 +72,124 @@
         </div>
 
         <div class="box">
-            <h2>SYSTEM_INFO</h2>
-            <p style="font-size: 0.8rem;">CONTACT: tweekerganga@gmail.com</p>
+            <h2>SYSTEM_SPECS</h2>
+            <p><strong>CONTACT:</strong> tweekerganga@gmail.com</p>
+            <p style="margin-top: 10px;">POOPOO / PeePee</p>
             <div class="img-card" style="margin-top: 20px;">
                 <img src="https://i.ibb.co/TxjCc5N0/lolcat.jpg" alt="LOLCAT">
-                <div class="img-caption">LOLCAT_V1</div>
+                <div class="img-caption">LOLCAT</div>
             </div>
         </div>
-
     </div>
 
-    <footer>[ ARCHIVE_v2.8 // MADE WITH AI & ADRENALINE ]</footer>
+    <div style="display: flex; justify-content: center; margin: 40px 0;">
+        <div class="img-card" style="max-width: 180px;">
+            <img src="https://i.ibb.co/wNqjbD65/delay-lama.gif" alt="Delay Lama">
+            <div class="img-caption">DALEY LAMA</div>
+        </div>
+    </div>
+
+    <footer>[ MADE WITH LOVE AND AI CUZ I CAN ONLY DO BLACK TEXT IN HTML ]</footer>
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.29.9.min.js"></script>
-
-<script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cannon.js/0.6.2/cannon.min.js"></script>
 <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.29.9.min.js"></script>
 
 <script>
-    // --- CONFIG & GLOBALS ---
     const BIN_ID = '69b9d2cdaa77b81da9f39310';
     const API_KEY = '$2a$10$1d4Pnq.9STzrxyydPHGqlu9TvqNXCLW4839Yyy9PxpNuZHhY05Vja';
     const CLOUD_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
-    let scene, camera, renderer, world, stickman, gun, pubnub;
+    let scene, camera, renderer, world, pubnub;
     let peers = {}, balls = [];
     const myID = "pete_" + Math.random().toString(36).substr(2, 4);
-
-    // --- MOUSE LOOK VARIABLES ---
     let yaw = 0, pitch = 0;
-    const mouseSensitivity = 0.002;
+
+    async function loadCloudData() {
+        try {
+            const res = await fetch(CLOUD_URL, { headers: { 'X-Master-Key': API_KEY }});
+            const data = await res.json();
+            const msgs = data.record.messages || [];
+            const stream = document.getElementById('data-stream');
+            stream.innerHTML = "";
+            msgs.forEach(p => {
+                const e = document.createElement('div');
+                e.style.cssText = "border-bottom:1px solid #111; padding:8px 0; font-size:0.85rem;";
+                e.innerHTML = `<b style="color:var(--accent)">[${p.handle}]:</b> ${p.content}`;
+                stream.appendChild(e);
+            });
+            document.getElementById('entry-count').innerText = msgs.length;
+        } catch (e) {}
+    }
+
+    async function transmitToCloud() {
+        const h = document.getElementById('handle').value.trim() || "ANON";
+        const c = document.getElementById('content').value.trim();
+        if (!c) return;
+        const res = await fetch(CLOUD_URL, { headers: { 'X-Master-Key': API_KEY }});
+        const data = await res.json();
+        const messages = data.record.messages || [];
+        messages.unshift({ handle: h, content: c, time: new Date().toLocaleTimeString() });
+        await fetch(CLOUD_URL, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'X-Master-Key': API_KEY }, body: JSON.stringify({ messages }) });
+        loadCloudData();
+        document.getElementById('content').value = "";
+    }
 
     function initGmod() {
         document.getElementById('join-screen').style.display = 'none';
-        const container = document.getElementById('gmod-void');
+        const box = document.getElementById('gmod-void');
 
-        // 1. SCENE & PHYSICS WORLD
         scene = new THREE.Scene();
         world = new CANNON.World();
         world.gravity.set(0, -9.82, 0);
 
-        // 2. CAMERA & RENDERER
-        camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+        // FIXED CAMERA FOV (60 is better than 75 for stability)
+        camera = new THREE.PerspectiveCamera(60, box.clientWidth / box.clientHeight, 0.1, 1000);
         renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        container.appendChild(renderer.domElement);
+        renderer.setSize(box.clientWidth, box.clientHeight);
+        box.appendChild(renderer.domElement);
 
-        // 3. INFINITE GRID & LIGHTING
-        const grid = new THREE.GridHelper(200, 100, 0xff0055, 0x111111);
-        scene.add(grid);
-        const candle = new THREE.PointLight(0xffaa00, 3, 20);
-        candle.position.set(0, 2, 0);
-        scene.add(candle);
+        scene.add(new THREE.GridHelper(200, 50, 0xff0055, 0x111111));
+        const light = new THREE.PointLight(0xffaa00, 4, 20);
+        light.position.set(0, 3, 0);
+        scene.add(light);
+        scene.add(new THREE.AmbientLight(0x404040));
 
-        // 4. PLAYER / STICKMAN
-        stickman = new THREE.Group();
-        // The "Gun" (A stick attached to player)
-        gun = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.1, 0.5), new THREE.MeshBasicMaterial({color: 0x555555}));
-        gun.position.set(0.3, 1.2, -0.4);
-        stickman.add(gun);
-        scene.add(stickman);
-
-        // 5. LOCK POINTER FOR FPS
-        container.requestPointerLock = container.requestPointerLock || container.mozRequestPointerLock;
-        container.onclick = () => {
-            container.requestPointerLock();
-            spawnBall(); // Shoot on click!
-        };
-
+        box.addEventListener('click', () => { box.requestPointerLock(); spawnBall(); });
         document.addEventListener('mousemove', (e) => {
-            if (document.pointerLockElement === container) {
-                yaw -= e.movementX * mouseSensitivity;
-                pitch -= e.movementY * mouseSensitivity;
-                pitch = Math.max(-Math.PI/3, Math.min(Math.PI/3, pitch));
+            if (document.pointerLockElement === box) {
+                yaw -= e.movementX * 0.002;
+                pitch -= e.movementY * 0.002;
+                pitch = Math.max(-1.5, Math.min(1.5, pitch));
             }
         });
 
-        // 6. MULTIPLAYER
         pubnub = new PubNub({ publishKey: 'pub-c-4627d355-6b60-466d-965a-0d924d6274e1', subscribeKey: 'sub-c-5727932c-352b-11eb-a63e-f23023e981f3', uuid: myID });
-        pubnub.subscribe({ channels: ['pete_void'] });
+        pubnub.subscribe({ channels: ['pete_v3'] });
         pubnub.addListener({ message: (m) => { if (m.publisher !== myID) updatePeer(m.publisher, m.message); } });
 
         animate();
     }
 
     function spawnBall() {
-        // 3D Ball
-        const geo = new THREE.SphereGeometry(0.2);
-        const mat = new THREE.MeshStandardMaterial({color: 0x4ade80, emissive: 0x113311});
-        const mesh = new THREE.Mesh(geo, mat);
+        const mesh = new THREE.Mesh(new THREE.SphereGeometry(0.3), new THREE.MeshStandardMaterial({color: 0x4ade80, emissive: 0x00ff00}));
         scene.add(mesh);
-
-        // Physics Ball
-        const body = new CANNON.Body({ mass: 1, shape: new CANNON.Sphere(0.2) });
-        body.position.set(stickman.position.x, 1.5, stickman.position.z);
-
-        // Calculate Shoot Direction
+        const body = new CANNON.Body({ mass: 1, shape: new CANNON.Sphere(0.3) });
+        body.position.copy(camera.position);
         const dir = new THREE.Vector3(0, 0, -1).applyQuaternion(camera.quaternion);
-        body.velocity.set(dir.x * 15, dir.y * 15, dir.z * 15);
+        body.velocity.set(dir.x * 18, dir.y * 18, dir.z * 18);
         world.addBody(body);
-
         balls.push({ mesh, body });
     }
 
     function updatePeer(id, data) {
         if (!peers[id]) {
-            peers[id] = new THREE.Group();
-            const h = new THREE.Mesh(new THREE.SphereGeometry(0.2), new THREE.MeshBasicMaterial({color: 0x00ffcc}));
-            h.position.y = 1.5;
-            peers[id].add(h);
+            peers[id] = new THREE.Mesh(new THREE.BoxGeometry(0.5, 1.5, 0.5), new THREE.MeshBasicMaterial({color: 0x00ffff, wireframe: true}));
             scene.add(peers[id]);
         }
-        peers[id].position.lerp(new THREE.Vector3(data.x, data.y, data.z), 0.2);
+        peers[id].position.set(data.x, 0.75, data.z);
+        document.getElementById('peer-count').innerText = Object.keys(peers).length + 1;
     }
 
     const keys = {};
@@ -203,50 +199,19 @@
     function animate() {
         requestAnimationFrame(animate);
         world.step(1/60);
-
-        if (stickman) {
-            // FPS Movement
-            const speed = 0.1;
-            if (keys['w']) { stickman.position.x -= Math.sin(yaw) * speed; stickman.position.z -= Math.cos(yaw) * speed; }
-            if (keys['s']) { stickman.position.x += Math.sin(yaw) * speed; stickman.position.z += Math.cos(yaw) * speed; }
-            if (keys['a']) { stickman.position.x -= Math.cos(yaw) * speed; stickman.position.z += Math.sin(yaw) * speed; }
-            if (keys['d']) { stickman.position.x += Math.cos(yaw) * speed; stickman.position.z -= Math.sin(yaw) * speed; }
-
-            stickman.rotation.y = yaw;
-            camera.position.set(stickman.position.x, 1.6, stickman.position.z);
+        if (camera) {
+            const s = 0.12;
+            if (keys['w']) { camera.position.x -= Math.sin(yaw) * s; camera.position.z -= Math.cos(yaw) * s; }
+            if (keys['s']) { camera.position.x += Math.sin(yaw) * s; camera.position.z += Math.cos(yaw) * s; }
+            if (keys['a']) { camera.position.x -= Math.cos(yaw) * s; camera.position.z += Math.sin(yaw) * s; }
+            if (keys['d']) { camera.position.x += Math.cos(yaw) * s; camera.position.z -= Math.sin(yaw) * s; }
             camera.rotation.set(pitch, yaw, 0, 'YXZ');
-
-            // Sync with others
-            pubnub.publish({ channel: 'pete_void', message: { x: stickman.position.x, y: stickman.position.y, z: stickman.position.z } });
+            if (Date.now() % 10 === 0) pubnub.publish({ channel: 'pete_v3', message: { x: camera.position.x, z: camera.position.z } });
         }
-
-        // Update Physics Balls
-        balls.forEach(b => {
-            b.mesh.position.copy(b.body.position);
-            b.mesh.quaternion.copy(b.body.quaternion);
-        });
-
+        balls.forEach(b => { b.mesh.position.copy(b.body.position); b.mesh.quaternion.copy(b.body.quaternion); });
         renderer.render(scene, camera);
     }
-
-    // --- GUESTBOOK LOGIC (Keeping your existing sync) ---
-    async function loadCloudData() {
-        try {
-            const res = await fetch(CLOUD_URL, { headers: { 'X-Master-Key': API_KEY }});
-            const data = await res.json();
-            const messages = data.record.messages || [];
-            const stream = document.getElementById('data-stream');
-            stream.innerHTML = "";
-            messages.forEach((post) => {
-                const entry = document.createElement('div');
-                entry.style.cssText = "border-bottom:1px solid #111; padding:10px 0; font-size:0.8rem;";
-                entry.innerHTML = `<b style="color:var(--accent)">[${post.handle}]:</b> ${post.content}`;
-                stream.appendChild(entry);
-            });
-        } catch (e) { console.log("Guestbook Offline"); }
-    }
     window.onload = loadCloudData;
-</script>
 </script>
 </body>
 </html>
