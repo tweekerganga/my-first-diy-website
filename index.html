@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> DEEZ | PETE </title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -9,54 +10,64 @@
     <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.29.9.min.js"></script>
 </head>
 <body>
+
 <main>
     <header style="border-bottom: 4px double #ff0055; margin-bottom: 2rem; padding-bottom: 1rem;">
         <h1><marquee scrollamount="15">PETE'S WEB // YOURE ON THE WORLD WIDE WEB!!!</marquee></h1>
-        <p>> STATUS: <span id="sync-status" style="color:#ff0055">CORE_ENGINE_REBUILT</span></p>
+        <p>> PLAYER_NAME: <span style="color:#ff0055">CHUD</span> | STATUS: <span id="sync-status">ONLINE</span></p>
     </header>
 
     <div class="grid-container">
         <div class="box" id="gmod-void" style="grid-column: 1 / -1; padding:0; height: 600px;">
             <div id="join-screen">
-                <img src="https://i.ibb.co/gcY7Vmq/DOOM.webp" style="width: 150px; filter: hue-rotate(280deg); margin-bottom: 20px;">
-                <h2 style="color:#ff0055;">[ VOID_STATION_ULTRA ]</h2>
-                <button onclick="initGmod()" style="background:#ff0055; color:white; border:none; padding:15px 50px; cursor:pointer; font-weight:bold; margin-top:20px;">SPAWN_IN</button>
+                <img src="https://i.ibb.co/gcY7Vmq/DOOM.webp" style="width: 180px; filter: hue-rotate(280deg); margin-bottom: 20px;">
+                <h2 style="color:#ff0055; letter-spacing: 3px;">[ SPAWN_STATION_CHUD ]</h2>
+                <button onclick="initGmod()" style="background:#ff0055; color:white; border:none; padding:15px 60px; cursor:pointer; font-weight:bold; margin-top:20px; font-size:1.2rem;">ENTER_VOID</button>
+                <p style="color:#666; font-size:0.7rem; margin-top:15px;">WASD TO WALK | CLICK TO SHOOT | ESC TO EXIT MOUSE</p>
             </div>
-            <div id="crosshair" style="position:absolute; top:50%; left:50%; width:10px; height:10px; border:1px solid #ff0055; border-radius:50%; transform:translate(-50%, -50%); pointer-events:none; z-index:10;"></div>
-            <div style="position:absolute; top:10px; left:10px; font-size:0.7rem; color:#ff0055; z-index:10;">VOID_RESIDENTS: <span id="peer-count">1</span></div>
+            <div id="crosshair" style="position:absolute; top:50%; left:50%; width:12px; height:12px; border:2px solid #ff0055; border-radius:50%; transform:translate(-50%, -50%); pointer-events:none; z-index:10;"></div>
+            <div style="position:absolute; top:10px; left:10px; font-size:0.8rem; color:#ff0055; z-index:10; font-weight:bold;">
+                RESIDENTS: <span id="peer-count">1</span>
+            </div>
         </div>
 
         <div class="box" style="grid-column: 1 / -2;">
-            <h2>GUESTBOOK</h2>
-            <div style="background: #000; padding: 15px; border: 1px solid #333; margin-bottom: 10px;">
-                <input type="text" id="handle" placeholder="SET_HANDLE" style="background:#111; border:1px solid #444; color:#ff0055; padding:8px; width:100%; margin-bottom:5px;">
-                <div style="display: flex; gap: 5px;">
-                    <textarea id="content" placeholder="MESSAGE..." style="flex-grow:1; background:#111; border:1px solid #444; color:#fff; padding:8px; height:45px; resize:none;"></textarea>
-                    <button onclick="transmitToCloud()" style="background:#ff0055; color:white; border:none; padding:0 20px; font-weight:bold; cursor:pointer;">SEND</button>
+            <h2 style="color:#ff0055; margin-bottom:10px;">GUESTBOOK (ARCHIVE)</h2>
+            <div style="background: #000; padding: 15px; border: 1px solid #333; margin-bottom: 15px;">
+                <input type="text" id="handle" placeholder="CHUD_NAME" style="background:#111; border:1px solid #444; color:#ff0055; padding:10px; width:100%; margin-bottom:10px; font-family:inherit;">
+                <div style="display: flex; gap: 10px;">
+                    <textarea id="content" placeholder="SAY SOMETHING..." style="flex-grow:1; background:#111; border:1px solid #444; color:#fff; padding:10px; height:50px; resize:none; font-family:inherit;"></textarea>
+                    <button onclick="transmitToCloud()" style="background:#ff0055; color:white; border:none; padding:0 25px; font-weight:bold; cursor:pointer;">SEND</button>
                 </div>
             </div>
-            <div id="data-stream" style="height:300px; overflow-y:auto; background:#000; padding:10px;"></div>
+            <div id="data-stream" style="height:350px; overflow-y:auto; background:#000; border:1px solid #222; padding:10px;"></div>
         </div>
 
         <div class="box">
-            <h2>SYSTEM_SPECS</h2>
-            <p>POOPOO / PeePee</p>
-            <div class="img-card" style="margin-top: 30px;">
-                <img src="https://i.ibb.co/TxjCc5N0/lolcat.jpg">
-                <div class="img-caption">LOLCAT</div>
+            <h2 style="color:#ff0055;">SYSTEM_SPECS</h2>
+            <p><strong>CONTACT:</strong> tweekerganga@gmail.com</p>
+            <p style="margin-top: 20px; font-weight: bold; color: #ff0055; font-size: 1.2rem;">POOPOO / PeePee</p>
+            
+            <div class="img-card" style="margin-top: 30px; background:#fff; padding:10px 10px 30px 10px; border:1px solid #ddd; transform:rotate(-2deg);">
+                <img src="https://i.ibb.co/TxjCc5N0/lolcat.jpg" style="width:100%;">
+                <div style="color:#000; text-align:center; font-weight:bold; margin-top:5px;">LOLCAT</div>
             </div>
         </div>
     </div>
 
-    <div style="display: flex; justify-content: center; margin: 40px 0;">
-        <div class="img-card" style="max-width: 180px;">
-            <img src="https://i.ibb.co/wNqjbD65/delay-lama.gif">
-            <div class="img-caption">DALEY LAMA</div>
+    <div style="display: flex; justify-content: center; margin: 60px 0;">
+        <div class="img-card" style="max-width: 220px; background:#fff; padding:10px 10px 30px 10px; border:1px solid #ddd; transform:rotate(1.5deg);">
+            <img src="https://i.ibb.co/wNqjbD65/delay-lama.gif" style="width:100%;">
+            <div style="color:#000; text-align:center; font-weight:bold; margin-top:5px;">DALEY LAMA</div>
         </div>
     </div>
+
+    <footer style="text-align:center; opacity:0.5; font-size:0.7rem; margin-bottom:40px;">[ MADE WITH LOVE AND AI CUZ I CAN ONLY DO BLACK TEXT IN HTML ]</footer>
 </main>
+
 <script src="void_engine.js"></script>
 <script>
+    // Guestbook Sync
     const BIN_ID = '69b9d2cdaa77b81da9f39310';
     const API_KEY = '$2a$10$1d4Pnq.9STzrxyydPHGqlu9TvqNXCLW4839Yyy9PxpNuZHhY05Vja';
     const CLOUD_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
@@ -67,12 +78,12 @@
             const d = await res.json();
             const msgs = d.record.messages || [];
             document.getElementById('data-stream').innerHTML = msgs.map(p => 
-                `<div style="border-bottom:1px solid #111; padding:8px 0;"><b>[${p.handle}]:</b> ${p.content}</div>`
+                `<div style="border-bottom:1px solid #111; padding:10px 0; font-size:0.9rem;"><b style="color:#ff0055">[${p.handle}]:</b> ${p.content}</div>`
             ).join('');
-        } catch(e) {}
+        } catch(e) { console.log("Cloud Error"); }
     }
     async function transmitToCloud() {
-        const h = document.getElementById('handle').value || "ANON";
+        const h = document.getElementById('handle').value || "CHUD";
         const c = document.getElementById('content').value;
         if (!c) return;
         const res = await fetch(CLOUD_URL, { headers: { 'X-Master-Key': API_KEY }});
@@ -81,6 +92,7 @@
         msgs.unshift({ handle: h, content: c });
         await fetch(CLOUD_URL, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'X-Master-Key': API_KEY }, body: JSON.stringify({ messages: msgs }) });
         loadCloudData();
+        document.getElementById('content').value = "";
     }
     window.onload = loadCloudData;
 </script>
