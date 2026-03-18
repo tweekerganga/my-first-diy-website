@@ -2,216 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title> DEEZ | PETE </title>
-    <style>
-        :root {
-            --bg: #050505;
-            --card-bg: #111111;
-            --accent: #ff0055;
-            --text-high: #ffffff;
-            --text-mid: #a0a0a0;
-            --border: #222;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html, body { background: var(--bg); color: var(--text-high); font-family: 'Courier New', monospace; overflow-x: hidden; }
-        body { padding: 2rem 1rem; }
-        main { width: 100%; max-width: 1200px; margin: 0 auto; }
-
-        header { border-bottom: 4px double var(--accent); padding-bottom: 1rem; margin-bottom: 2rem; }
-        h1 { font-size: clamp(1.5rem, 6vw, 3.5rem); text-transform: uppercase; }
-
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .box { background: var(--card-bg); border: 2px solid var(--border); padding: 1.5rem; position: relative; }
-        .box:hover { border-color: var(--accent); }
-        h2 { color: var(--accent); font-size: 1rem; margin-bottom: 1rem; }
-
-        #gmod-void { height: 500px; position: relative; background: #000; overflow: hidden; border: 4px solid var(--accent); }
-        #join-screen { position: absolute; inset: 0; background: rgba(0,0,0,0.9); z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        
-        #data-stream { height: 400px; overflow-y: auto; background: #000; padding: 10px; border: 1px solid #222; resize: vertical; }
-
-        .img-card { background: #fff; padding: 10px 10px 30px 10px; border: 1px solid #ddd; transform: rotate(-1.5deg); }
-        .img-card img { width: 100%; display: block; }
-        .img-caption { color: #000; font-size: 0.8rem; text-align: center; font-weight: bold; margin-top: 5px; }
-
-        footer { margin-top: 3rem; text-align: center; font-size: 0.7rem; opacity: 0.6; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cannon.js/0.6.2/cannon.min.js"></script>
+    <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.29.9.min.js"></script>
 </head>
 <body>
 
 <main>
-    <header>
-        <h1><marquee scrollamount="15">PETE'S WEB // YOURE ON THE WORLD WIDE WEB!!!</marquee></h1>
-        <p>> Pete's Website | <span id="sync-status" style="color:var(--accent)">STAY HYDRATED</span></p>
+    <header style="border-bottom: 4px double #ff0055; margin-bottom: 2rem;">
+        <h1><marquee>PETE'S WEB // YOURE ON THE WORLD WIDE WEB!!!</marquee></h1>
     </header>
 
     <div class="grid-container">
-        
         <div class="box" id="gmod-void" style="grid-column: 1 / -1; padding:0;">
             <div id="join-screen">
-                <img src="https://i.ibb.co/gcY7Vmq/DOOM.webp" style="width: 150px; margin-bottom: 20px;">
-                <h2 style="animation: blink 1s infinite;">[ SPAWN_STATION ]</h2>
-                <button onclick="initGmod()" style="background:var(--accent); color:white; border:none; padding:12px 35px; font-weight:bold; cursor:pointer;">ENTER_VOID</button>
+                <h2 style="color:#ff0055;">[ VOID_STATION_v4 ]</h2>
+                <button onclick="initGmod()" style="background:#ff0055; color:white; border:none; padding:15px 40px; cursor:pointer; font-weight:bold; margin-top:20px;">SPAWN</button>
             </div>
-            <div style="position:absolute; top:10px; left:10px; font-size:0.7rem; color:var(--accent); z-index:5;">PEERS: <span id="peer-count">1</span></div>
+            <div style="position:absolute; top:10px; left:10px; font-size:0.7rem; color:#ff0055; z-index:10;">PLAYERS: <span id="peer-count">1</span></div>
         </div>
 
-        <div class="box" style="grid-column: 1 / -2;">
-            <h2>GUESTBOOK (Entries: <span id="entry-count">0</span>)</h2>
-            <div style="background: #000; padding: 10px; border: 1px solid #333; margin-bottom: 10px;">
-                <input type="text" id="handle" placeholder="SET_HANDLE" style="background:#111; border:1px solid #444; color:var(--accent); padding:5px; margin-bottom:5px; width:100%;">
-                <div style="display: flex; gap: 5px;">
-                    <textarea id="content" placeholder="MESSAGE..." style="flex-grow:1; background:#111; border:1px solid #444; color:#fff; padding:5px; height:40px; resize:none;"></textarea>
-                    <button onclick="transmitToCloud()" style="background:var(--accent); color:white; border:none; padding:0 15px; font-weight:bold; cursor:pointer;">SEND</button>
-                </div>
-            </div>
-            <div id="data-stream"></div>
+        <div class="box">
+            <h2>GUESTBOOK</h2>
+            <div id="data-stream" style="height:300px; overflow-y:auto; background:#000; margin-top:10px;"></div>
         </div>
 
         <div class="box">
             <h2>SYSTEM_SPECS</h2>
-            <p><strong>CONTACT:</strong> tweekerganga@gmail.com</p>
-            <p style="margin-top: 10px;">POOPOO / PeePee</p>
-            <div class="img-card" style="margin-top: 20px;">
-                <img src="https://i.ibb.co/TxjCc5N0/lolcat.jpg" alt="LOLCAT">
+            <p>POOPOO / PeePee</p>
+            <div class="img-card" style="margin-top:20px;">
+                <img src="https://i.ibb.co/TxjCc5N0/lolcat.jpg">
                 <div class="img-caption">LOLCAT</div>
             </div>
         </div>
     </div>
-
-    <div style="display: flex; justify-content: center; margin: 40px 0;">
-        <div class="img-card" style="max-width: 180px;">
-            <img src="https://i.ibb.co/wNqjbD65/delay-lama.gif" alt="Delay Lama">
-            <div class="img-caption">DALEY LAMA</div>
-        </div>
-    </div>
-
-    <footer>[ MADE WITH LOVE AND AI CUZ I CAN ONLY DO BLACK TEXT IN HTML ]</footer>
 </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cannon.js/0.6.2/cannon.min.js"></script>
-<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.29.9.min.js"></script>
-
-<script>
-    const BIN_ID = '69b9d2cdaa77b81da9f39310';
-    const API_KEY = '$2a$10$1d4Pnq.9STzrxyydPHGqlu9TvqNXCLW4839Yyy9PxpNuZHhY05Vja';
-    const CLOUD_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
-
-    let scene, camera, renderer, world, pubnub;
-    let peers = {}, balls = [];
-    const myID = "pete_" + Math.random().toString(36).substr(2, 4);
-    let yaw = 0, pitch = 0;
-
-    async function loadCloudData() {
-        try {
-            const res = await fetch(CLOUD_URL, { headers: { 'X-Master-Key': API_KEY }});
-            const data = await res.json();
-            const msgs = data.record.messages || [];
-            const stream = document.getElementById('data-stream');
-            stream.innerHTML = "";
-            msgs.forEach(p => {
-                const e = document.createElement('div');
-                e.style.cssText = "border-bottom:1px solid #111; padding:8px 0; font-size:0.85rem;";
-                e.innerHTML = `<b style="color:var(--accent)">[${p.handle}]:</b> ${p.content}`;
-                stream.appendChild(e);
-            });
-            document.getElementById('entry-count').innerText = msgs.length;
-        } catch (e) {}
-    }
-
-    async function transmitToCloud() {
-        const h = document.getElementById('handle').value.trim() || "ANON";
-        const c = document.getElementById('content').value.trim();
-        if (!c) return;
-        const res = await fetch(CLOUD_URL, { headers: { 'X-Master-Key': API_KEY }});
-        const data = await res.json();
-        const messages = data.record.messages || [];
-        messages.unshift({ handle: h, content: c, time: new Date().toLocaleTimeString() });
-        await fetch(CLOUD_URL, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'X-Master-Key': API_KEY }, body: JSON.stringify({ messages }) });
-        loadCloudData();
-        document.getElementById('content').value = "";
-    }
-
-    function initGmod() {
-        document.getElementById('join-screen').style.display = 'none';
-        const box = document.getElementById('gmod-void');
-
-        scene = new THREE.Scene();
-        world = new CANNON.World();
-        world.gravity.set(0, -9.82, 0);
-
-        // FIXED CAMERA FOV (60 is better than 75 for stability)
-        camera = new THREE.PerspectiveCamera(60, box.clientWidth / box.clientHeight, 0.1, 1000);
-        renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(box.clientWidth, box.clientHeight);
-        box.appendChild(renderer.domElement);
-
-        scene.add(new THREE.GridHelper(200, 50, 0xff0055, 0x111111));
-        const light = new THREE.PointLight(0xffaa00, 4, 20);
-        light.position.set(0, 3, 0);
-        scene.add(light);
-        scene.add(new THREE.AmbientLight(0x404040));
-
-        box.addEventListener('click', () => { box.requestPointerLock(); spawnBall(); });
-        document.addEventListener('mousemove', (e) => {
-            if (document.pointerLockElement === box) {
-                yaw -= e.movementX * 0.002;
-                pitch -= e.movementY * 0.002;
-                pitch = Math.max(-1.5, Math.min(1.5, pitch));
-            }
-        });
-
-        pubnub = new PubNub({ publishKey: 'pub-c-4627d355-6b60-466d-965a-0d924d6274e1', subscribeKey: 'sub-c-5727932c-352b-11eb-a63e-f23023e981f3', uuid: myID });
-        pubnub.subscribe({ channels: ['pete_v3'] });
-        pubnub.addListener({ message: (m) => { if (m.publisher !== myID) updatePeer(m.publisher, m.message); } });
-
-        animate();
-    }
-
-    function spawnBall() {
-        const mesh = new THREE.Mesh(new THREE.SphereGeometry(0.3), new THREE.MeshStandardMaterial({color: 0x4ade80, emissive: 0x00ff00}));
-        scene.add(mesh);
-        const body = new CANNON.Body({ mass: 1, shape: new CANNON.Sphere(0.3) });
-        body.position.copy(camera.position);
-        const dir = new THREE.Vector3(0, 0, -1).applyQuaternion(camera.quaternion);
-        body.velocity.set(dir.x * 18, dir.y * 18, dir.z * 18);
-        world.addBody(body);
-        balls.push({ mesh, body });
-    }
-
-    function updatePeer(id, data) {
-        if (!peers[id]) {
-            peers[id] = new THREE.Mesh(new THREE.BoxGeometry(0.5, 1.5, 0.5), new THREE.MeshBasicMaterial({color: 0x00ffff, wireframe: true}));
-            scene.add(peers[id]);
-        }
-        peers[id].position.set(data.x, 0.75, data.z);
-        document.getElementById('peer-count').innerText = Object.keys(peers).length + 1;
-    }
-
-    const keys = {};
-    window.onkeydown = (e) => keys[e.key.toLowerCase()] = true;
-    window.onkeyup = (e) => keys[e.key.toLowerCase()] = false;
-
-    function animate() {
-        requestAnimationFrame(animate);
-        world.step(1/60);
-        if (camera) {
-            const s = 0.12;
-            if (keys['w']) { camera.position.x -= Math.sin(yaw) * s; camera.position.z -= Math.cos(yaw) * s; }
-            if (keys['s']) { camera.position.x += Math.sin(yaw) * s; camera.position.z += Math.cos(yaw) * s; }
-            if (keys['a']) { camera.position.x -= Math.cos(yaw) * s; camera.position.z += Math.sin(yaw) * s; }
-            if (keys['d']) { camera.position.x += Math.cos(yaw) * s; camera.position.z -= Math.sin(yaw) * s; }
-            camera.rotation.set(pitch, yaw, 0, 'YXZ');
-            if (Date.now() % 10 === 0) pubnub.publish({ channel: 'pete_v3', message: { x: camera.position.x, z: camera.position.z } });
-        }
-        balls.forEach(b => { b.mesh.position.copy(b.body.position); b.mesh.quaternion.copy(b.body.quaternion); });
-        renderer.render(scene, camera);
-    }
-    window.onload = loadCloudData;
-</script>
+<script src="void_engine.js"></script>
 </body>
 </html>
