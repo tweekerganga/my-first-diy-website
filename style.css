@@ -1,19 +1,15 @@
-#background {
-    color: #0f0f23;  /* Almost black with blue tint */
-}
+#head { color: #1d1d55; }
 
-#AboutS {
-    color: #1f1f3a;  /* Dark blue */
-}
+#AboutS {  color: #04045d; }
 
-#email {
-    color: #4a148c;  /* Deep purple */
-}
+#email {   color:#272528 ; }
 
-#github {
-    color: #4a148c;  /* Same deep purple */
-}
+#github {  color: #272528; }
 
-#head {
-    color: #880e4f;  /* Deep magenta */
-}
+#head {   color: #880e4f;  }
+
+#background { background-color: #4141d2;}
+
+#thanks {color: aliceblue;}
+
+#About {color: #f3f3f3;}
