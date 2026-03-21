@@ -6,12 +6,18 @@
     <meta name="keywords" content="HTML, cool, cooking, diy, awesome">
     <meta name="author" content="Alex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <style>#background { background-color: #4141d2; }</style>
   </head>
-  <body style="background-color: #4141d2;">
+  <body id="background">
+  
+  <canvas id="rainCanvas" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index: 999;"></canvas>
+  
   <h1 id="head">THIS IS MY WEBSITE</h1>
+  <hr>
+  <h2>HERE YOU HAVE THINGS TO LOOK AT!</h2>
+  <pre id="arrow">  &#x2193         &#x2193         &#x2193         &#x2193        &#x2193        &#x2193        </pre>        
     <br>
-    <hr>
+
     <br>
     <div style="position: relative; display: inline-block;">
       <iframe style="border: 0;" src="https://tweekerganga.github.io/Sourkraut-Website/"></iframe>
@@ -26,10 +32,77 @@
       <div style="position: relative; display: inline-block;">
       <iframe style="border: 0;" src="https://tweekerganga.github.io/Apple-Pie/"></iframe>
       <a href="https://tweekerganga.github.io/Apple-Pie/" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></a>
-    </div>
-   
+      </div>
     <br>
+    <button onclick="rainFor3Seconds()">why wouldnt you click me</button>
+    <br>
+    
+  <script>
+const canvas = document.getElementById('rainCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
+let raining = false;
+let drops = [];
+const img = new Image();
+img.src = 'https://i.ibb.co/DgVwbs0h/catangry.png';
+
+class Drop {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = -50;
+    this.speed = Math.random() * 5 + 6;
+    this.size = Math.random() * 300 + 20;
+  }
+  
+  update() {
+    this.y += this.speed;
+    if (this.y > canvas.height) {
+      this.y = -50;
+      this.x = Math.random() * canvas.width;
+    }
+  }
+  
+  draw() {
+    ctx.drawImage(img, this.x, this.y, this.size, this.size);
+  }
+}
+
+function init() {
+  drops = [];
+  for (let i = 0; i < 50; i++) {
+    drops.push(new Drop());
+  }
+}
+
+function animate() {
+  if (!raining) return;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drops.forEach(drop => {
+    drop.update();
+    drop.draw();
+  });
+  requestAnimationFrame(animate);
+}
+
+function rainFor3Seconds() {
+  if (raining) return;
+  raining = true;
+  init();
+  animate();
+  
+  setTimeout(() => {
+    raining = false;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }, 3000);
+}
+
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+</script>
    
   <hr>
     <br>
