@@ -1,17 +1,29 @@
-#head { color: #1d1d55; }
+#head { color: #880e4f; }
+#AboutS { color: #04045d; }
+#email { color:#272528; }
+#github { color: #272528; }
+#background { background-color: #4141d2; }
+#thanks { color: aliceblue; }
+#About { color: #f3f3f3; }
 
-#AboutS {  color: #04045d; }
+.arrows {
+  display: flex;
+  justify-content: space-between;
+  font-size: inherit;
+  font-weight: bold;
+  color: red;
+  animation: rgbCycle 2s linear infinite;
+  text-shadow: 0 0 5px currentColor;
+}
 
-#email {   color:#272528 ; }
+.arrows span::before {
+  content: "\2193"; /* ↓ */
+}
 
-#github {  color: #272528; }
+@keyframes rgbCycle {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
 
-#head {   color: #880e4f;  }
-
-#background { background-color: #4141d2;}
-
-#thanks {color: aliceblue;}
-
-#About {color: #f3f3f3;}
-
-#arrow { color: red; animation: rgbCycle 2s linear infinite; font-size: 2em; text-shadow: 0 0 5px currentColor;}@keyframes rgbCycle { 0% { filter: hue-rotate(0deg); } 100% { filter: hue-rotate(360deg); }}
+.arrow-container { display: inline-block; }
+.arrow-container h2 { margin: 0; }
