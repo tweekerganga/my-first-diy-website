@@ -1,208 +1,286 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
     <title>my website</title>
     <meta name="keywords" content="HTML, cool, cooking, diy, awesome">
     <meta name="author" content="Alex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>#background { background-color: #4141d2; }</style>
+    <style>
+      body { 
+        background-color: #2d3c59; 
+        color: #e8e0d5; 
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        max-width: 900px;
+      }
+      a { color: #e5ba41; }
+      a:hover { color: #d1855c; }
+      iframe { width: 200px; height: 150px; border: 2px solid #94a378; }
+      button { 
+        background: #e5ba41; 
+        color: #2d3c59;
+        border: 2px solid #94a378; 
+        padding: 10px 20px; 
+        cursor: pointer;
+        font-weight: bold;
+      }
+      button:hover { background: #d1855c; color: #e8e0d5; }
+      input, textarea { 
+        background: #3a4a6b; 
+        color: #e8e0d5; 
+        border: 1px solid #94a378;
+        padding: 5px;
+        margin: 5px 0;
+      }
+      textarea { width: 300px; height: 100px; }
+      hr { border: 1px solid #94a378; }
+      h1, h2, h3 { color: #e5ba41; }
+      /* Admin section styling */
+      details {
+        background: #3a4a6b;
+        border: 2px solid #e5ba41;
+        padding: 10px;
+        margin: 20px 0;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: bold;
+        color: #e5ba41;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 10px;
+      }
+      th, td {
+        border: 1px solid #94a378;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background: #4a5a7b;
+        color: #e5ba41;
+      }
+      td {
+        background: #3a4a6b;
+      }
+    </style>
   </head>
-  <body id="background">
+  <body>
   
   <canvas id="rainCanvas" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index: 999;"></canvas>
   
-  <h1 id="head">THIS IS MY WEBSITE</h1>
+  <h1>THIS IS MY WEBSITE</h1>
   <hr>
- <div class="arrow-container">
-  <h2>HERE YOU HAVE THINGS TO LOOK AT!</h2>
-  <div class="arrows">
-    <span></span><span></span><span></span><span></span><span></span><span></span>
-  </div>
-</div>
- <br>
-
-<div style="overflow-x: auto; white-space: nowrap; width: 100%;">
-
-   <div style="display: inline-block; vertical-align: top; margin-right: 20px; white-space: normal; text-align: center;">
-    <a href="https://www.corpwatch.org/article/nestle-and-making-brazils-obesity-crisis" target="_blank" title="NOT COOL SHIT CHECK IT OUT!!" style="display: inline-block; text-decoration: none; color: white;">
-      <p style="text-align: center; margin: 0; font-size: 12px; max-width: 200px;">FUCK NESTLE</p>
-    </a>
-  </div>
  
+  <h2>HERE YOU HAVE THINGS TO LOOK AT!</h2>
+  <br>
+
+  <div style="overflow-x: auto; white-space: nowrap; width: 100%;">
+
     <div style="display: inline-block; vertical-align: top; margin-right: 20px; white-space: normal; text-align: center;">
-    <a href="https://stacks.stanford.edu/file/hp877by7094/thesisBower-fixed-augmented.pdf" target="_blank" title="COOL SHIT CHECK IT OUT!!" style="display: inline-block; text-decoration: none; color: white;">
-      <p style="text-align: center; margin: 0; font-size: 12px; max-width: 200px;">BOUNDARY LAYER DYNAMIC SOARING FOR AUTONOMOUS AIRCRAFT: DESIGN AND VALIDATION</p>
-    </a>
-  </div>
-
-  <div style="display: inline-block; vertical-align: top; margin-right: 20px; white-space: normal;">
-    <div style="position: relative; display: inline-block;">
-      <iframe style="border: 0;" src="https://tweekerganga.github.io/Sourkraut-Website/"></iframe>
-      <a title="SOUP EVERYONE LOVES SOUP RIGHT?????????" href="https://tweekerganga.github.io/Sourkraut-Website/" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></a>
+      <a href="https://www.corpwatch.org/article/nestle-and-making-brazils-obesity-crisis" target="_blank" title="NOT COOL SHIT CHECK IT OUT!!" style="color: #ff6b6b; font-weight: bold;">
+        FUCK NESTLE
+      </a>
     </div>
-  </div>
-
-  <div style="display: inline-block; vertical-align: top; margin-right: 20px; white-space: normal;">
-    <div style="position: relative; display: inline-block;">
-      <iframe style="border: 0;" src="https://tweekerganga.github.io/Hotwire-cutter/"></iframe>
-      <a title="THIS CAN MAKE COOL FUCKING PLANES AND COOL SHIT GET SOME BITCHES WITH THE HUMBLE HOTWIRE FOAM CUTTER!!!!!" href="https://tweekerganga.github.io/Hotwire-cutter/" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></a>
+ 
+    <div style="display: inline-block; vertical-align: top; margin-right: 20px; white-space: normal; text-align: center; max-width: 200px;">
+      <a href="https://stacks.stanford.edu/file/hp877by7094/thesisBower-fixed-augmented.pdf" target="_blank" title="COOL SHIT CHECK IT OUT!!" style="font-size: 12px;">
+        BOUNDARY LAYER DYNAMIC SOARING FOR AUTONOMOUS AIRCRAFT: DESIGN AND VALIDATION
+      </a>
     </div>
-  </div>
 
-  <div style="display: inline-block; vertical-align: top; white-space: normal;">
-    <div style="position: relative; display: inline-block;">
-      <iframe style="border: 0;" src="https://tweekerganga.github.io/Apple-Pie/"></iframe>
-      <a title="A TEXT THAT WILL MAKE YOU MAKE PIE, EVERYONE LOVES PIE EVEN YOUR NEIGHBOR LOVES APPLE PIE, MAKE SOME APPLE PIE FOR YOURSELF AND PEOPLE YOU KNOW IT IS SO CHEAP AND GOOD APPLE PIEEE!!!!!!!!!!!!!!" href="https://tweekerganga.github.io/Apple-Pie/" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></a>
+    <div style="display: inline-block; vertical-align: top; margin-right: 20px; white-space: normal;">
+      <div style="position: relative; display: inline-block;">
+        <iframe src="https://tweekerganga.github.io/Sourkraut-Website/"></iframe>
+        <a href="https://tweekerganga.github.io/Sourkraut-Website/" target="_blank" title="SOUP EVERYONE LOVES SOUP RIGHT?????????" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></a>
+      </div>
     </div>
+
+    <div style="display: inline-block; vertical-align: top; margin-right: 20px; white-space: normal;">
+      <div style="position: relative; display: inline-block;">
+        <iframe src="https://tweekerganga.github.io/Hotwire-cutter/"></iframe>
+        <a href="https://tweekerganga.github.io/Hotwire-cutter/" target="_blank" title="THIS CAN MAKE COOL FUCKING PLANES AND COOL SHIT GET SOME BITCHES WITH THE HUMBLE HOTWIRE FOAM CUTTER!!!!!" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></a>
+      </div>
+    </div>
+
+    <div style="display: inline-block; vertical-align: top; white-space: normal;">
+      <div style="position: relative; display: inline-block;">
+        <iframe src="https://tweekerganga.github.io/Apple-Pie/"></iframe>
+        <a href="https://tweekerganga.github.io/Apple-Pie/" target="_blank" title="A TEXT THAT WILL MAKE YOU MAKE PIE, EVERYONE LOVES PIE EVEN YOUR NEIGHBOR LOVES APPLE PIE, MAKE SOME APPLE PIE FOR YOURSELF AND PEOPLE YOU KNOW IT IS SO CHEAP AND GOOD APPLE PIEEE!!!!!!!!!!!!!!" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></a>
+      </div>
+    </div>
+
   </div>
 
-</div>
-
-<br>
-    <button onclick="rainFor3Seconds()">why wouldnt you click me</button>
-    <br>
+  <br>
+  <button onclick="rainFor3Seconds()">why wouldnt you click me</button>
+  <br><br>
     
   <script>
-const canvas = document.getElementById('rainCanvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+    const canvas = document.getElementById('rainCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-let raining = false;
-let drops = [];
-const img = new Image();
-img.src = 'https://i.ibb.co/DgVwbs0h/catangry.png';
+    let raining = false;
+    let drops = [];
+    const img = new Image();
+    img.src = 'https://i.ibb.co/DgVwbs0h/catangry.png';
 
-class Drop {
-  constructor() {
-    this.x = Math.random() * canvas.width;
-    this.y = -500;
-    this.speed = Math.random() * 5 + 6;
-    this.size = Math.random() * 300 + 20;
-  }
-  
-  update() {
-    this.y += this.speed;
-    if (this.y > canvas.height) {
-      this.y = -50;
-      this.x = Math.random() * canvas.width;
+    class Drop {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = -500;
+        this.speed = Math.random() * 5 + 6;
+        this.size = Math.random() * 300 + 20;
+      }
+      
+      update() {
+        this.y += this.speed;
+        if (this.y > canvas.height) {
+          this.y = -50;
+          this.x = Math.random() * canvas.width;
+        }
+      }
+      
+      draw() {
+        ctx.drawImage(img, this.x, this.y, this.size, this.size);
+      }
     }
-  }
+
+    function init() {
+      drops = [];
+      for (let i = 0; i < 50; i++) {
+        drops.push(new Drop());
+      }
+    }
+
+    function animate() {
+      if (!raining) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drops.forEach(drop => {
+        drop.update();
+        drop.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    function rainFor3Seconds() {
+      if (raining) return;
+      raining = true;
+      init();
+      animate();
+      
+      setTimeout(() => {
+        raining = false;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }, 3000);
+    }
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
   
-  draw() {
-    ctx.drawImage(img, this.x, this.y, this.size, this.size);
-  }
-}
-
-function init() {
-  drops = [];
-  for (let i = 0; i < 50; i++) {
-    drops.push(new Drop());
-  }
-}
-
-function animate() {
-  if (!raining) return;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drops.forEach(drop => {
-    drop.update();
-    drop.draw();
-  });
-  requestAnimationFrame(animate);
-}
-
-function rainFor3Seconds() {
-  if (raining) return;
-  raining = true;
-  init();
-  animate();
-  
-  setTimeout(() => {
-    raining = false;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }, 3000);
-}
-
-window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
-</script>
+  <!-- ADMIN NOTES OR WHATEVER -->
+  <details>
+    <summary>&#128272; WEB UPDATES I DID (click here 2 open)</summary>
+    <table>
+      <tr>
+        <th>DAY</th>
+        <th>HOUR</th>
+        <th>WHAT I DID</th>
+      </tr>
+      <tr>
+        <td>2026-04-02</td>
+        <td>23:45</td>
+        <td>added this admin section, fixed the hotwire cutter page <br> and made the main site look cooler with colorhunt palette</td>
+      </tr>
+      <tr>
+        <td><!-- DAY --></td>
+        <td><!-- HOUR --></td>
+        <td><!-- NOTE --></td>
+      </tr>
+      <tr>
+        <td><!-- DAY --></td>
+        <td><!-- HOUR --></td>
+        <td><!-- NOTE --></td>
+      </tr>
+      <tr>
+        <td><!-- DAY --></td>
+        <td><!-- HOUR --></td>
+        <td><!-- NOTE --></td>
+      </tr>
+    </table>
+    <p style="font-size: 12px; color: #94a378;">edit this table manually in the HTML - no database no bullshit</p>
+  </details>
    
   <hr>
 
-<br><br>
-<h3>CONTACT ME FROM HERE!</h3>
-<h1>  &#x2193    &#x2193  </h1>
-<form
-  action="https://formspree.io/f/xaqpvnpa"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    <br>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
+  <h3>CONTACT ME FROM HERE!</h3>
+  <h1>&#x2193 &#x2193</h1>
+  
+  <form action="https://formspree.io/f/xaqpvnpa" method="POST">
+    <label>
+      Your email:<br>
+      <input type="email" name="email">
+    </label>
+    <br><br>
+    <label>
+      Your message:<br>
+      <textarea name="message"></textarea>
+    </label>
+    <br><br>
+    <button type="submit">Send</button>
+  </form>
+    
   <br>
-  <!-- your other form fields go here -->
-   &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button type="submit">Send</button>
-</form>
-    <br>
-      <h4>about alex:</h4> 
-      hello i am alex and im a amateur html coder, <ins>just made this site and its pretty cool!</ins>
-      i will be adding much more everyday to this site to become a HTML, CSS and maybe JS master coder!
-      will be nice for finding a job in the future and maybe make this big old rock flying at 1.3 million km/h a better place...
-      hope you enjoy my site and feel free to send me suggestions at     <a id="email" href="mailto:tweekerganga@gmail.com" target="_blank" title="this will make you email me">
-      my email.
-    </a>
-       <p>
-      <a id="github" href="https://github.com/tweekerganga" target="_blank" title="this will show you my github">
-        this is my github!
-      </a>
-    </p>
-    <h3 id="AboutS">why did i make this site?</h3>
-    <ul>
-      <li id="reason1">to gain knowledge about html</li>
-      <li id="reason2">to show off to my friends</li>
-      <li id="reason3">to look cool</li>
-    </ul>
+  <h4>about alex:</h4> 
+  <p>hello i am alex and im a amateur html coder, <ins>just made this site and its pretty cool!</ins><br>
+  i will be adding much more everyday to this site to become a HTML, CSS and maybe JS master coder!<br>
+  will be nice for finding a job in the future and maybe make this big old rock flying at 1.3 million km/h a better place...<br>
+  hope you enjoy my site and feel free to send me suggestions at 
+  <a href="mailto:tweekerganga@gmail.com" target="_blank">my email</a>.</p>
+       
+  <p><a href="https://github.com/tweekerganga" target="_blank">this is my github!</a></p>
+  
+  <h3>why did i make this site?</h3>
+  <ul>
+    <li>to gain knowledge about html</li>
+    <li>to show off to my friends</li>
+    <li>to look cool</li>
+  </ul>
 
   <a href="#" onclick="spinAndLaugh(); return false;">
-  <img id="squirrel" src="https://i.ibb.co/cSQgX90h/squirrel.png" alt="squirrel" border="0" style="transition: transform 0.5s ease;">
-</a>
+    <img id="squirrel" src="https://i.ibb.co/cSQgX90h/squirrel.png" alt="squirrel" style="transition: transform 0.5s ease; border: 0;">
+  </a>
 
-<audio id="laugh" preload="auto">
-  <source src="https://files.catbox.moe/14ih3m.mp3" type="audio/mpeg">
-</audio>
+  <audio id="laugh" preload="auto">
+    <source src="https://files.catbox.moe/14ih3m.mp3" type="audio/mpeg">
+  </audio>
 
-<script>
-let rotation = 0;
-function spinAndLaugh() {
-  rotation += 360;
-  document.getElementById('squirrel').style.transform = 'rotate(' + rotation + 'deg)';
-  document.getElementById('laugh').currentTime = 0;
-  document.getElementById('laugh').play();
-}
-</script>
+  <script>
+    let rotation = 0;
+    function spinAndLaugh() {
+      rotation += 360;
+      document.getElementById('squirrel').style.transform = 'rotate(' + rotation + 'deg)';
+      document.getElementById('laugh').currentTime = 0;
+      document.getElementById('laugh').play();
+    }
+  </script>
   
-
-    <br><br>
-  
-<a href="https://ibb.co/5Xsqy5Y4">
-  <img src="https://i.ibb.co/WNBSwcD5/catonthelaptop.jpg" 
-       style="border: 0; width: 100%; max-width: 600px; height: auto;" 
-       alt="a cat thoughtfully in front of a laptop" 
-       title="cat of thoughts">
-</a>
-    <br><br><br>
-      <br><br>
-    <br><br>
   <br><br>
+  
+  <a href="https://ibb.co/5Xsqy5Y4">
+    <img src="https://i.ibb.co/WNBSwcD5/catonthelaptop.jpg" 
+         style="border: 0; width: 100%; max-width: 600px; height: auto;" 
+         alt="a cat thoughtfully in front of a laptop" 
+         title="cat of thoughts">
+  </a>
+    
+  <br><br><br><br><br><br><br><br><br><br>
 
   </body>
 </html>
