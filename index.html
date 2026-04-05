@@ -109,7 +109,19 @@
   <button onclick="rainFor3Seconds()" title="YOU KNOW YOU WANT TO CLICK IT">CLICK FOR ANGRY CAT RAIN!!</button>
   <br><br>
     
-  <script>
+ <script>
+    const CONFIG = {
+        dropCount: 600,           // how many cats fall
+        minSize: 120,            // smallest cat size (pixels)
+        maxSize: 300,            // largest cat size (pixels)
+        minSpeed: 20,             // slowest fall speed
+        maxSpeed: 30,             // fastest fall speed
+        rainDuration: 7000,      // how long rain lasts (milliseconds)
+        img1Chance: 0.5,         // chance of img1 vs img2 (0.5 = 50/50)
+        startY: -500,            // where cats spawn (above screen)
+        resetY: -50              // where cats reset when they fall off
+    };
+
     const canvas = document.getElementById('rainCanvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
@@ -117,78 +129,69 @@
 
     let raining = false;
     let drops = [];
-    const img = new Image();
-    img.src = 'https://i.ibb.co/DgVwbs0h/catangry.png';
+    
+    const img1 = new Image();
+    img1.src = 'https://i.ibb.co/DgVwbs0h/catangry.png';
+    const img2 = new Image();
+    img2.src = 'https://i.ibb.co/YBGtpVH3/output-onlinepngtools-1.png';
 
     class Drop {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = -500;
-        this.speed = Math.random() * 5 + 6;
-        this.size = Math.random() * 200 + 20;
-      }
-      update() {
-        this.y += this.speed;
-        if (this.y > canvas.height) {
-          this.y = -50;
-          this.x = Math.random() * canvas.width;
+        constructor() {
+            this.reset();
         }
-      }
-      draw() {
-        ctx.drawImage(img, this.x, this.y, this.size, this.size);
-      }
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = CONFIG.startY;
+            this.speed = Math.random() * (CONFIG.maxSpeed - CONFIG.minSpeed) + CONFIG.minSpeed;
+            this.size = Math.random() * (CONFIG.maxSize - CONFIG.minSize) + CONFIG.minSize;
+            this.img = Math.random() > CONFIG.img1Chance ? img1 : img2;
+        }
+        update() {
+            this.y += this.speed;
+            if (this.y > canvas.height) {
+                this.reset();
+            }
+        }
+        draw() {
+            ctx.drawImage(this.img, this.x, this.y, this.size, this.size);
+        }
     }
 
     function init() {
-      drops = [];
-      for (let i = 0; i < 50; i++) {
-        drops.push(new Drop());
-      }
+        drops = [];
+        for (let i = 0; i < CONFIG.dropCount; i++) {
+            drops.push(new Drop());
+        }
     }
 
     function animate() {
-      if (!raining) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      drops.forEach(drop => {
-        drop.update();
-        drop.draw();
-      });
-      requestAnimationFrame(animate);
+        if (!raining) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drops.forEach(drop => {
+            drop.update();
+            drop.draw();
+        });
+        requestAnimationFrame(animate);
     }
 
     function rainFor3Seconds() {
-      if (raining) return;
-      raining = true;
-      init();
-      animate();
-      setTimeout(() => {
-        raining = false;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-      }, 3000);
+        if (raining) return;
+        raining = true;
+        init();
+        animate();
+        setTimeout(() => {
+            raining = false;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }, CONFIG.rainDuration);
     }
 
     window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     });
-  </script>
+</script>
   
-  <details>
-    <summary title="CLICK TO SEE WHAT I DID">&#128272; WEB UPDATES (secret)</summary>
-    <table>
-      <tr style="background: #ccc;">
-        <th>DAY</th>
-        <th>HOUR</th>
-        <th>WHAT I DID</th>
-      </tr>
-      <tr>
-        <td>2026-04-02</td>
-        <td>23:45</td>
-        <td>Fixed the broken links and added the hover texts back in!</td>
-      </tr>
-    </table>
-  </details>
-    
+
   <hr>
 
   <h3>CONTACT ME!!</h3>
@@ -236,6 +239,53 @@
       document.getElementById('laugh').play();
     }
   </script>
+
+  <br><br>
+  <details>
+    <summary title="CLICK TO SEE WHAT I DID"> WEB STUFF or something... </summary>
+    <table>
+      <tr style="background: #ccc;">
+        <th>DAY</th>
+        <th>HOUR</th>
+        <th>WHAT I DID</th>
+      </tr>
+      <tr>
+        <td>2026-04-01</td>
+        <td>23:45</td>
+        <td>added this happy april fools
+        </td>
+      </tr>
+       <tr>
+        <td>2026-00-00</td>
+        <td> 00:00</td>
+        <td>  ≽^•⩊•^≼
+        </td>
+      </tr>
+       <tr>
+        <td>2026-00-00</td>
+        <td> 00:00</td>
+        <td>  =^._.^= ∫
+        </td>
+      </tr>
+       <tr>
+        <td>2026-00-00</td>
+        <td> 00:00</td>
+        <td>  ദ്ദി/ᐠ｡‸｡ᐟ\
+        </td>
+      </tr>
+       <tr>
+        <td>2026-00-00</td>
+        <td> 00:00</td>
+        <td>  ^._.^
+        </td>
+      </tr> <tr>
+        <td>2026-00-00</td>
+        <td> 00:00</td>
+        <td>  ᓚᘏᗢ
+        </td>
+      </tr>
+    </table>
+  </details>
   
   <br><br>
   
