@@ -6,6 +6,9 @@
     <meta name="author" content="Alex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+      .tab-content { display: none; padding: 10px; border: 1px solid #ccc; background: white; }
+.tab-content.active { display: block; }
+
       body { 
         background-color: #d9bfe5; 
         color: #000000; 
@@ -67,35 +70,80 @@
   <center><h1>WELCOME TO MY WEBSITE!!!!</h1></center>
   <hr>
  
-  <h2>HERE IS COOL STUFF TO SEE:</h2>
+ <h2>HERE IS COOL STUFF TO SEE:</h2>
 
-  <div style="overflow-x: auto; white-space: nowrap;">
+<script async src="https://ukradiolive.com/public/jsv260327161015/jquery.embed-popup-player.js"></script>
 
-    <div style="display: inline-block; padding: 10px; border: 1px solid black; background: white; margin: 5px;">
-      <a href="https://www.corpwatch.org/article/nestle-and-making-brazils-obesity-crisis" target="_blank" title="NOT COOL SHIT CHECK IT OUT!!">
-        <b>FUCK NESTLE</b>
-      </a>
-    </div>
- 
-    <div style="display: inline-block; padding: 10px; border: 1px solid black; background: white; margin: 5px; width: 150px; white-space: normal;">
-      <a href="https://stacks.stanford.edu/file/hp877by7094/thesisBower-fixed-augmented.pdf" target="_blank" title="COOL SHIT CHECK IT OUT!!">
-      <b> BOUNDARY LAYER DYNAMIC SOARING FOR AUTONOMOUS AIRCRAFT:</b>
-      </a>
-    </div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start;">
 
-    <a href="https://tweekerganga.github.io/Sourkraut-Website/" target="_blank" class="web-link" title="SOUP EVERYONE LOVES SOUP RIGHT?????????">
-        <iframe src="https://tweekerganga.github.io/Sourkraut-Website/" width="200" height="150" style="pointer-events: none;"></iframe>
+  <div style="display: inline-block; padding: 10px; border: 1px solid black; background: white; white-space: normal;">
+    <a class="js-popupPlayer" href="https://ukradiolive.com/bbc-radio-1#server727" title="Start online radio!">
+      <img src="https://ukradiolive.com/public/img/launcher/logo_96.png" title="Start online radio!" alt="Start online radio!">
     </a>
-
-    <a href="https://tweekerganga.github.io/Hotwire-cutter/" target="_blank" class="web-link" title="THIS CAN MAKE COOL FUCKING PLANES AND COOL SHIT GET SOME BITCHES WITH THE HUMBLE HOTWIRE FOAM CUTTER!!!!!">
-        <iframe src="https://tweekerganga.github.io/Hotwire-cutter/" width="200" height="150" style="pointer-events: none;"></iframe>
-    </a>
-
-    <a href="https://tweekerganga.github.io/Apple-Pie/" target="_blank" class="web-link" title="A TEXT THAT WILL MAKE YOU MAKE PIE, EVERYONE LOVES PIE EVEN YOUR NEIGHBOR LOVES APPLE PIE, MAKE SOME APPLE PIE FOR YOURSELF AND PEOPLE YOU KNOW IT IS SO CHEAP AND GOOD APPLE PIEEE!!!!!!!!!!!!!!">
-        <iframe src="https://tweekerganga.github.io/Apple-Pie/" width="200" height="150" style="pointer-events: none;"></iframe>
-    </a>
-
   </div>
+
+  <div style="display: inline-block; padding: 10px; border: 1px solid black; background: white; white-space: normal;">
+    <a href="https://www.corpwatch.org/article/nestle-and-making-brazils-obesity-crisis" target="_blank" title="NOT COOL SHIT CHECK IT OUT!!">
+      <b>FUCK NESTLE</b>
+    </a>
+  </div>
+
+  <div style="display: inline-block; padding: 10px; border: 1px solid black; background: white; width: 150px; white-space: normal;">
+    <a href="https://stacks.stanford.edu/file/hp877by7094/thesisBower-fixed-augmented.pdf" target="_blank" title="COOL SHIT CHECK IT OUT!!">
+      <b>BOUNDARY LAYER DYNAMIC SOARING FOR AUTONOMOUS AIRCRAFT:</b>
+    </a>
+  </div>
+
+  <a href="https://tweekerganga.github.io/Sourkraut-Website/" target="_blank" class="web-link" title="SOUP EVERYONE LOVES SOUP RIGHT?????????" style="display: inline-block; border: 1px solid black; line-height: 0;">
+    <iframe src="https://tweekerganga.github.io/Sourkraut-Website/" width="200" height="150" style="pointer-events: none;"></iframe>
+  </a>
+
+  <a href="https://tweekerganga.github.io/Hotwire-cutter/" target="_blank" class="web-link" title="THIS CAN MAKE COOL FUCKING PLANES AND COOL SHIT GET SOME BITCHES WITH THE HUMBLE HOTWIRE FOAM CUTTER!!!!!" style="display: inline-block; border: 1px solid black; line-height: 0;">
+    <iframe src="https://tweekerganga.github.io/Hotwire-cutter/" width="200" height="150" style="pointer-events: none;"></iframe>
+  </a>
+
+  <a href="https://tweekerganga.github.io/Apple-Pie/" target="_blank" class="web-link" title="A TEXT THAT WILL MAKE YOU MAKE PIE, EVERYONE LOVES PIE EVEN YOUR NEIGHBOR LOVES APPLE PIE, MAKE SOME APPLE PIE FOR YOURSELF AND PEOPLE YOU KNOW IT IS SO CHEAP AND GOOD APPLE PIEEE!!!!!!!!!!!!!!" style="display: inline-block; border: 1px solid black; line-height: 0;">
+    <iframe src="https://tweekerganga.github.io/Apple-Pie/" width="200" height="150" style="pointer-events: none;"></iframe>
+  </a>
+
+</div>
+
+<style>
+@media (max-width: 768px) {
+  div[style*="display: flex"] {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    padding-bottom: 10px !important;
+  }
+}
+</style>
+ <button onclick="document.getElementById('panel').classList.toggle('active')">Feline cat kitty Gallery!</button>
+
+ <div id="panel" class="tab-content">
+        <a href="https://ibb.co/rR4T0Gy5">
+            <img src="https://i.ibb.co/Jw50tRkr/Screenshot-20260118-195706.png" alt="Screenshot" border="0">
+            <p>just a stock photo of a cat</p>
+        </a>
+        <a href="https://imgbb.com/">
+            <img src="https://i.ibb.co/TDKpP1GS/blive.jpg" alt="Screenshot" border="0">
+            <p>BELIVE!</p>
+        </a>
+        <a href="---">
+            <img src="---" alt="Screenshot" border="0">
+            <p>cat</p>
+        </a>
+         <a href="---">
+            <img src="---" alt="Screenshot" border="0">
+            <p>cat</p>
+        </a> <a href="---">
+            <img src="---" alt="Screenshot" border="0">
+            <p>cat</p>
+        </a> <a href="---">
+            <img src="---" alt="Screenshot" border="0">
+            <p>cat</p>
+        </a>
+    </div>
+
 
   <br>
   <h3>COOL WEBSITES YOU SHOULD SEE:</h3>
@@ -252,10 +300,16 @@
       <tr>
         <td>2026-04-01</td>
         <td>23:45</td>
-        <td>added this, happy april fools
+        <td>added this happy april fools
         </td>
       </tr>
        <tr>
+        <td>2026-04-06</td>
+        <td> 16:42</td>
+        <td> Added cat gallery, radio and the cool websites you should visit!
+        </td>
+      </tr>
+      <tr>
         <td>2026-00-00</td>
         <td> 00:00</td>
         <td>  ≽^•⩊•^≼
