@@ -6,6 +6,39 @@
     <meta name="author" content="Alex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <style>
+      /* This makes the entire "Web Stuff" box clickable */
+      details.web-stuff-box {
+        border: 1px solid black;
+        background: #f0f0f0;
+        margin-top: 20px;
+      }
+
+      details.web-stuff-box summary {
+        padding: 15px;
+        cursor: pointer;
+        list-style: none; /* Removes the default arrow */
+        font-weight: bold;
+        display: block;
+      }
+
+      details.web-stuff-box summary::-webkit-details-marker {
+        display: none; /* Removes arrow in Safari/Chrome */
+      }
+
+      details.web-stuff-box[open] summary {
+        border-bottom: 1px solid black;
+        background: #e0e0e0;
+      }
+
+      .tab-content a {
+        display: inline-block;
+        margin: 5px;
+        text-decoration: none;
+        color: black;
+        vertical-align: top;
+      }
+    </style>
   </head>
   <body class="website-body">
   
@@ -15,7 +48,6 @@
   <h1>WELCOME TO MY WEBSITE!!!!</h1>
 </div>
   
-  <!-- 3D WOW Animation -->
   <div class="wow-container">
     <figure>
       <h1>WOW!</h1>
@@ -37,7 +69,6 @@
 
   <script async src="https://ukradiolive.com/public/jsv260327161015/jquery.embed-popup-player.js"></script>
 
-  <!-- FLEX CONTAINER FOR COOL STUFF -->
   <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start;">
 
      <a href="https://tweekerganga.github.io/the-human-protocol/" target="_blank" class="web-link" title="a small article i made for you to read!" style="display: inline-block; border: 1px solid black; line-height: 0;">
@@ -76,14 +107,24 @@
 
   </div>
 
-  <!-- CAT GALLERY BUTTON AND PANEL -->
   <button title="CATS FOR EVERYONE FROM EVERYONE!" onclick="document.getElementById('panel').classList.toggle('active')">Feline cat kitty Gallery!</button>
 
   <div id="panel" class="tab-content">
-    <a href="https://ibb.co/rR4T0Gy5">
-      <img src="https://i.ibb.co/Jw50tRkr/Screenshot-20260118-195706.png" alt="Screenshot" border="0">
-      <p>just a stock photo of a cat...</p>
+    <a href="https://ibb.co/fGYm6ZXf">
+      <img src="https://i.ibb.co/tPMyjnHg/5678.jpg" alt="5678" border="0">
+      <p>His highness (Bonzo!)</p>
     </a>
+
+    <a href="https://ibb.co/0jXkvbBJ">
+      <img src="https://i.ibb.co/mCBmgWvz/5702.jpg" alt="5702" border="0">
+      <p>kitty kitty ( Bonzo ).</p>
+    </a>
+
+    <a href="https://ibb.co/wNzXTd8W">
+      <img src="https://i.ibb.co/fYx5bXZp/6444.jpg" alt="6444" border="0">
+      <p>catman or batcat? ( Sir Bonzo)</p>
+    </a>
+   
     <a href="https://imgbb.com/">
       <img src="https://i.ibb.co/TDKpP1GS/blive.jpg" alt="Screenshot" border="0">
       <p>BELIEVE!</p>
@@ -217,60 +258,65 @@
 
   <hr>
 
-    <details>
-    <summary title="CLICK TO SEE WHAT I DID"> WEB STUFF or something... </summary>
-    <table>
-      <tr style="background: #ccc;">
-        <th>DAY</th>
-        <th>HOUR</th>
-        <th>WHAT I DID</th>
-      </tr>
-      <tr>
-        <td>2026-04-01</td>
-        <td>23:45</td>
-        <td>added this happy april fools</td>
-      </tr>
-      <tr>
-        <td>2026-04-06</td>
-        <td>16:42</td>
-        <td>Added cat gallery, radio and the cool websites you should visit!</td>
-      </tr>
-      <tr>
-        <td>2026-04-12</td>
-        <td>14:40</td>
-        <td>Added "wow" text animation from a website i dont remember... also i added many cats to the gallery and i changed the colors a tad bit, its cool!</td>
-      </tr>
-      <tr>
-        <td>2026-04-15</td>
-        <td>03:07</td>
-        <td>Added the "Human Protocol" article/manifesto and changed where this web update index is...</td>
-      </tr>
-      <tr>
-        <td>2026-00-00</td>
-        <td>00:00</td>
-        <td>≽^•⩊•^≼</td>
-      </tr>
-      <tr>
-        <td>2026-00-00</td>
-        <td>00:00</td>
-        <td>=^._.^= ∫</td>
-      </tr>
-      <tr>
-        <td>2026-00-00</td>
-        <td>00:00</td>
-        <td>ദ്ദി/ᐠ｡‸｡ᐟ\</td>
-      </tr>
-      <tr>
-        <td>2026-00-00</td>
-        <td>00:00</td>
-        <td>^._.^</td>
-      </tr>
-      <tr>
-        <td>2026-00-00</td>
-        <td>00:00</td>
-        <td>ᓚᘏᗢ</td>
-      </tr>
-    </table>
+    <details class="web-stuff-box">
+    <summary title="CLICK TO SEE WHAT I DID"> WEB STUFF THINGS I ADD or something... (click me) </summary>
+    <div style="padding: 10px;">
+        <table>
+          <tr style="background: #ccc;">
+            <th>DAY</th>
+            <th>HOUR</th>
+            <th>WHAT I DID</th>
+          </tr>
+          <tr>
+            <td>2026-04-01</td>
+            <td>23:45</td>
+            <td>added this happy april fools</td>
+          </tr>
+          <tr>
+            <td>2026-04-06</td>
+            <td>16:42</td>
+            <td>Added cat gallery, radio and the cool websites you should visit!</td>
+          </tr>
+          <tr>
+            <td>2026-04-12</td>
+            <td>14:40</td>
+            <td>Added "wow" text animation... changed the colors a tad bit, its cool!</td>
+          </tr>
+          <tr>
+            <td>2026-04-15</td>
+            <td>03:07</td>
+            <td>Added the "Human Protocol" article/manifesto and fixed the Web Stuff button!</td>
+          </tr>
+        <tr>
+  <td>2026-04-15</td>
+  <td>21:00</td>
+  <td style="max-width: 300px; word-wrap: break-word; white-space: normal;">
+    Made the &lt;summary&gt; of this index the whole box so its more easy to open, 
+    also added Bonzo, thanks stranger of the internet for sharing your kitty cat with me!
+  </td>
+</tr>
+          <tr>
+            <td>2026-00-00</td>
+            <td>00:00</td>
+            <td>=^._.^= ∫</td>
+          </tr>
+          <tr>
+            <td>2026-00-00</td>
+            <td>00:00</td>
+            <td>ദ്ദി/ᐠ｡‸｡ᐟ\</td>
+          </tr>
+          <tr>
+            <td>2026-00-00</td>
+            <td>00:00</td>
+            <td>^._.^</td>
+          </tr>
+          <tr>
+            <td>2026-00-00</td>
+            <td>00:00</td>
+            <td>ᓚᘏᗢ</td>
+          </tr>
+        </table>
+    </div>
   </details>
 
   <h3>CONTACT ME!!</h3>
