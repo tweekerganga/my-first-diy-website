@@ -67,6 +67,25 @@
  
   <h2>HERE IS COOL STUFF TO SEE:</h2>
 
+    <p><b>Click the squirrel for a surprise lol</b></p>
+  <a href="#" onclick="spinAndLaugh(); return false;" title="DO NOT CLICK THE SQUIRREL">
+    <img id="squirrel" src="https://i.ibb.co/cSQgX90h/squirrel.png" alt="squirrel" style="transition: transform 0.5s ease; width: 100px;">
+  </a>
+
+  <audio id="laugh" preload="auto">
+    <source src="https://files.catbox.moe/14ih3m.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    let rotation = 0;
+    function spinAndLaugh() {
+      rotation += 360;
+      document.getElementById('squirrel').style.transform = 'rotate(' + rotation + 'deg)';
+      document.getElementById('laugh').currentTime = 0;
+      document.getElementById('laugh').play();
+    }
+  </script>
+
   <script async src="https://ukradiolive.com/public/jsv260327161015/jquery.embed-popup-player.js"></script>
 
   <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start;">
@@ -107,9 +126,71 @@
 
   </div>
 
-  <button title="CATS FOR EVERYONE FROM EVERYONE!" onclick="document.getElementById('panel').classList.toggle('active')">Feline cat kitty Gallery!</button>
+  <br>
 
-  <div id="panel" class="tab-content">
+   <h3>COOL WEBSITES YOU SHOULD SEE:</h3>
+  <ul>
+    <li><a href="https://nt7s.com" title="some cool open source sharing website"> open-source amateur radio hardware  </a></li>
+    <li><a href="https://www.qrz.com/" title="website for RF geeks/nerds!">callsign database and active community with forums!</a></li>
+    <li><a href="https://www.eham.net/" title="eHAM website for HAM enthusiasts.">HAM radio community forums and gear marketplace</a></li>
+  </ul>
+
+ <details class="web-stuff-box">
+    <summary title="CLICK TO SEE CATS"> cats from everyone to everyone </summary>
+    <div style="padding: 10px;">
+
+
+
+      <a href="https://ibb.co/FkcLn5M0">
+        <img src="https://i.ibb.co/9mBkGbLV/rivakittycat.jpg" alt="rivakittycat" border="0">
+        <p>Riva kitty cat</p>
+    </a>
+
+    <a href="https://ibb.co/ccFfddTY">
+        <img src="https://i.ibb.co/6RP955sX/litterofcats.jpg" alt="litterofcats" border="0">
+        <p>Litter of cats (Riva, Gizmo and Lilly)</p>
+    </a>
+
+    <a href="https://ibb.co/J8JJvpp">
+        <img src="https://i.ibb.co/HR88tPP/lillykittycat.jpg" alt="lillykittycat" border="0">
+        <p>Lilly kitty cat</p>
+    </a>
+
+    <a href="https://ibb.co/HfPRRX4b">
+        <img src="https://i.ibb.co/bMvYY7mC/hydroscatstwo.jpg" alt="hydroscatstwo" border="0">
+        <p>kitty cats (Gizmo and Lilly)</p>
+    </a>
+
+    <a href="https://ibb.co/WWRXWs1T">
+        <img src="https://i.ibb.co/4Z0LZJxQ/hydroandcat.jpg" alt="hydroandcat" border="0">
+        <p>Phonetic and cat</p>
+    </a>
+
+    <a href="https://ibb.co/bjSdCVLy">
+        <img src="https://i.ibb.co/j9c4QYGx/gizmokitty.jpg" alt="gizmokitty" border="0">
+        <p>Gizmo kitty</p>
+    </a>
+
+    <a href="https://ibb.co/6cTgXnVg">
+        <img src="https://i.ibb.co/spNyWmky/catsandsofa.jpg" alt="catsandsofa" border="0">
+        <p>Cats and sofa</p>
+    </a>
+
+    <a href="https://ibb.co/wNQGTyns">
+        <img src="https://i.ibb.co/1fXy3ZC6/catfamily.jpg" alt="catfamily" border="0">
+        <p>Cat family (Lilly, Gizmo and Riva)</p>
+    </a>
+
+    <a href="https://ibb.co/Rp2FXc31">
+        <img src="https://i.ibb.co/4ZWqbp8c/Zeus.jpg" alt="Zeus" border="0">
+        <p>Zeus</p>
+    </a>
+
+    <a href="https://ibb.co/rRKbh5JR">
+        <img src="https://i.ibb.co/YF4DSfGF/Zeusund-Herkules.jpg" alt="Zeusund-Herkules" border="0">
+        <p>Zeus und Herkules</p>
+    </a>
+
     <a href="https://ibb.co/fGYm6ZXf">
       <img src="https://i.ibb.co/tPMyjnHg/5678.jpg" alt="5678" border="0">
       <p>His highness (Bonzo!)</p>
@@ -123,11 +204,6 @@
     <a href="https://ibb.co/wNzXTd8W">
       <img src="https://i.ibb.co/fYx5bXZp/6444.jpg" alt="6444" border="0">
       <p>catman or batcat? ( Sir Bonzo)</p>
-    </a>
-   
-    <a href="https://imgbb.com/">
-      <img src="https://i.ibb.co/TDKpP1GS/blive.jpg" alt="Screenshot" border="0">
-      <p>BELIEVE!</p>
     </a>
     <a href="https://ibb.co/qMXRLVdB">
       <img src="https://i.ibb.co/d01QsxrB/cica.jpg" alt="cica" border="0">
@@ -163,13 +239,76 @@
     </a>
   </div>
 
+ </details>
+
+  <details class="web-stuff-box">
+    <summary title="CLICK TO SEE WHAT I DID"> WEB STUFF THINGS I ADD or something... </summary>
+    <div style="padding: 10px;">
+        <table>
+          <tr style="background: #ccc;">
+            <th>DAY</th>
+            <th>HOUR</th>
+            <th>WHAT I DID</th>
+          </tr>
+          <tr>
+            <td>2026-04-01</td>
+            <td>23:45</td>
+            <td>added this happy april fools</td>
+          </tr>
+          <tr>
+            <td>2026-04-06</td>
+            <td>16:42</td>
+            <td>Added cat gallery, radio and the cool websites you should visit!</td>
+          </tr>
+          <tr>
+            <td>2026-04-12</td>
+            <td>14:40</td>
+            <td>Added "wow" text animation... changed the colors a tad bit, its cool!</td>
+          </tr>
+          <tr>
+            <td>2026-04-15</td>
+            <td>03:07</td>
+            <td>Added the "Human Protocol" article/manifesto and fixed the Web Stuff button!</td>
+          </tr>
+        <tr>
+          <td>2026-04-15</td>
+          <td>21:00</td>
+          <td style="max-width: 300px; word-wrap: break-word; white-space: normal;">
+           Made the &lt;summary&gt; of this index the whole box so its more easy to open, 
+            also added Bonzo, thanks stranger of the internet for sharing your kitty cat with me!
+         </td>
+         </tr>
+          <tr>
+            <td>2026-00-00</td>
+            <td>00:00</td>
+            <td>Changed the colors a bit,added a very fancy gradient, changed how the cat gallery looks ( the button to open it) and also added 5 more cats to the gallery! thanks much my good friend Hydrophonetic for providing! thanks man.</td>
+          </tr>
+          <tr>
+            <td>2026-00-00</td>
+            <td>00:00</td>
+            <td>=^._.^= ∫</td>
+          </tr>
+          <tr>
+            <td>2026-00-00</td>
+            <td>00:00</td>
+            <td>ദ്ദി/ᐠ｡‸｡ᐟ\</td>
+          </tr>
+          <tr>
+            <td>2026-00-00</td>
+            <td>00:00</td>
+            <td>^._.^</td>
+          </tr>
+          <tr>
+            <td>2026-00-00</td>
+            <td>00:00</td>
+            <td>ᓚᘏᗢ</td>
+          </tr>
+        </table>
+    </div>
+  </details>
+
   <br>
-  <h3>COOL WEBSITES YOU SHOULD SEE:</h3>
-  <ul>
-    <li><a href="https://nt7s.com" title="some cool open source sharing website"> open-source amateur radio hardware  </a></li>
-    <li><a href="https://www.qrz.com/" title="website for RF geeks/nerds!">callsign database and active community with forums!</a></li>
-    <li><a href="https://www.eham.net/" title="eHAM website for HAM enthusiasts.">HAM radio community forums and gear marketplace</a></li>
-  </ul>
+ 
 
   <button onclick="rainCats()" title="YOU KNOW YOU WANT TO CLICK IT">CLICK FOR ANGRY CAT RAIN!!</button>
 
@@ -258,82 +397,13 @@
 
   <hr>
 
-    <details class="web-stuff-box">
-    <summary title="CLICK TO SEE WHAT I DID"> WEB STUFF THINGS I ADD or something... (click me) </summary>
-    <div style="padding: 10px;">
-        <table>
-          <tr style="background: #ccc;">
-            <th>DAY</th>
-            <th>HOUR</th>
-            <th>WHAT I DID</th>
-          </tr>
-          <tr>
-            <td>2026-04-01</td>
-            <td>23:45</td>
-            <td>added this happy april fools</td>
-          </tr>
-          <tr>
-            <td>2026-04-06</td>
-            <td>16:42</td>
-            <td>Added cat gallery, radio and the cool websites you should visit!</td>
-          </tr>
-          <tr>
-            <td>2026-04-12</td>
-            <td>14:40</td>
-            <td>Added "wow" text animation... changed the colors a tad bit, its cool!</td>
-          </tr>
-          <tr>
-            <td>2026-04-15</td>
-            <td>03:07</td>
-            <td>Added the "Human Protocol" article/manifesto and fixed the Web Stuff button!</td>
-          </tr>
-        <tr>
-  <td>2026-04-15</td>
-  <td>21:00</td>
-  <td style="max-width: 300px; word-wrap: break-word; white-space: normal;">
-    Made the &lt;summary&gt; of this index the whole box so its more easy to open, 
-    also added Bonzo, thanks stranger of the internet for sharing your kitty cat with me!
-  </td>
-</tr>
-          <tr>
-            <td>2026-00-00</td>
-            <td>00:00</td>
-            <td>=^._.^= ∫</td>
-          </tr>
-          <tr>
-            <td>2026-00-00</td>
-            <td>00:00</td>
-            <td>ദ്ദി/ᐠ｡‸｡ᐟ\</td>
-          </tr>
-          <tr>
-            <td>2026-00-00</td>
-            <td>00:00</td>
-            <td>^._.^</td>
-          </tr>
-          <tr>
-            <td>2026-00-00</td>
-            <td>00:00</td>
-            <td>ᓚᘏᗢ</td>
-          </tr>
-        </table>
-    </div>
-  </details>
+   
 
-  <h3>CONTACT ME!!</h3>
-  <p>&#x2193; &#x2193; &#x2193;</p>
-  
-  <form action="https://formspree.io/f/xaqpvnpa" method="POST">
-    Your email:<br>
-    <input type="email" name="email"><br>
-    Your message:<br>
-    <textarea name="message" rows="4" cols="40"></textarea><br>
-    <button type="submit" title="Send it!">SEND EMAIL</button>
-  </form>
 
     
   <br>
-  <h4>about alex:</h4> 
-  <p>hello i am alex and im a amateur html coder, <ins>just made this site and its pretty cool!</ins><br>
+  <h4>About Alex:</h4> 
+  <p>Hello i am Alex and im a amateur html coder, <ins>just made this site and its pretty cool!</ins><br>
   i will be adding much more everyday to this site to become a HTML, CSS and maybe JS master coder!<br>
   hope you enjoy my site and feel free to send me suggestions at 
   <a href="mailto:tweekerganga@gmail.com" title="Email me!">my email</a>.</p>
@@ -347,34 +417,38 @@
     <li title="AAAAAAAAAAAAAAAAAAAAAA">to look cool</li>
   </ul>
 
-  <p><b>Click the squirrel for a surprise:</b></p>
-  <a href="#" onclick="spinAndLaugh(); return false;" title="DO NOT CLICK THE SQUIRREL">
-    <img id="squirrel" src="https://i.ibb.co/cSQgX90h/squirrel.png" alt="squirrel" style="transition: transform 0.5s ease; width: 100px;">
-  </a>
-
-  <audio id="laugh" preload="auto">
-    <source src="https://files.catbox.moe/14ih3m.mp3" type="audio/mpeg">
-  </audio>
-
-  <script>
-    let rotation = 0;
-    function spinAndLaugh() {
-      rotation += 360;
-      document.getElementById('squirrel').style.transform = 'rotate(' + rotation + 'deg)';
-      document.getElementById('laugh').currentTime = 0;
-      document.getElementById('laugh').play();
-    }
-  </script>
 
   <br><br>
+
+    <h3>CONTACT ME!!</h3>
+  <p>&#x2193; &#x2193; &#x2193;</p>
+  
+  <form action="https://formspree.io/f/xaqpvnpa" method="POST">
+    Your email:<br>
+    <input type="email" name="email"><br>
+    Your message:<br>
+    <textarea name="message" rows="4" cols="40"></textarea><br>
+    <button type="submit" title="Send it!">SEND EMAIL</button>
+  </form>
 
   
   <br><br>
+
+  <div style="text-align: center; margin: 20px 0;">
+  <a href="https://imgbb.com/" style="display: inline-block;">
+    <img src="https://i.ibb.co/TDKpP1GS/blive.jpg" alt="Screenshot" border="0" style="display: block; margin: 0 auto;">
+    <p style="margin: 10px 0 0 0;">BELIEVE!</p>
+  </a>
+</div>
   
   <img src="https://i.ibb.co/WNBSwcD5/catonthelaptop.jpg" 
        style="border: 10px ridge silver; max-width: 400px;" 
        alt="a cat on a laptop"
        title="cat of thoughts">
+  <br>
+  <br>
+
+  <hr>
     
   <br><br><br>
   <p align="center">Made with love and fingers.</p>
