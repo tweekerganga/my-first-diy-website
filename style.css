@@ -54,7 +54,7 @@ h1:nth-child(9) { transform: translateZ(40px); }
 h1:nth-child(10) { transform: translateZ(45px); }
 
 .website-body {
-  background: linear-gradient(to top, #ccccff 0%, #3366cc 100%) !important;
+   background: linear-gradient(to bottom, #006699 0%, #ccff66 100%);
   color: #000000;
   font-family: "Times New Roman", Times, serif;
   margin: 10px;
@@ -77,7 +77,7 @@ h1:nth-child(10) { transform: translateZ(45px); }
   text-shadow: none;
 }
 
-.website-body a { color: rgb(0, 255, 251); }
+.website-body a { color: rgb(0, 0, 0); }
 .website-body a:visited { color: rgb(0, 0, 0); }
 
 .website-body iframe {
